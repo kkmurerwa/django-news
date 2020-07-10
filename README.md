@@ -1,2 +1,2 @@
-"##Django News"
-"A practise Django project"
+##Django News
+A practise Django project
