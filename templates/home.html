@@ -3,12 +3,22 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-    {% if user.is_authenticated %}
-        Hi {{ user.username }}! | <a href="{% url 'logout' %}">Log Out</a>
-    {% else %}
-        <p>You are not logged in</p>
-        <a href="{% url 'login' %}">Log In</a> |
-        <a href="{% url 'signup' %}">Sign Up</a>
-    {% endif %}
+
+    <div class="jumbotron text-white bg-dark">
+        <h1 class="display-4">A Newspaper App made with Django</h1>
+
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{% url 'article_list' %}"
+            role="button">View All Articles</a>
+        </p>
+
+        {% if user.is_authenticated %}
+            Hi {{ user.username }}! | <a href="{% url 'logout' %}">Log Out</a>
+        {% else %}
+            <p>You are not logged in</p>
+            <a href="{% url 'login' %}">Log In</a> |
+            <a href="{% url 'signup' %}">Sign Up</a>
+        {% endif %}
+    </div>
 
 {% endblock content %}

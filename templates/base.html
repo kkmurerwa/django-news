@@ -14,7 +14,7 @@
             }
         </style>
     </head>
-    <body>
+    <body class="bg-light">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
             <a class="navbar-brand" href="{% url 'home' %}">The Kithaku Daily</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -25,15 +25,28 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 {% if user.is_authenticated %}
                     <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">{{ user.username }}</a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
-                            <a class="dropdown-item" href="{% url 'password_change'%}">Change password</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
-                        </div>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">Articles</a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
+                                <a class="dropdown-item" href="{% url 'article_list'%}">View articles</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{% url 'article_new'%}">Create new article</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">{{ user.username }}</a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
+                                <a class="dropdown-item" href="{% url 'password_change'%}">Change password</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{% url 'update_info'%}">Update Profile</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
+                            </div>
+                        </li>
                     </ul>
                 {% else %}
                     <form class="form-inline ml-auto">
