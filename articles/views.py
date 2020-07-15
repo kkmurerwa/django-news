@@ -5,8 +5,7 @@ from django.views.generic import ListView, DetailView, UpdateView, DeleteView, C
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Custom models
-from .models import Article
-from users.models import CustomUser
+from .models import Article, Comment
 
 
 class ArticleListView(ListView):
@@ -26,7 +25,8 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
 
 
 class ArticleDetailView(LoginRequiredMixin, DetailView):
-    model = Article
+    model = Article, Comment
+    fields = ('title', 'body')
     template_name = 'article_detail.html'
     login_url = 'login'
 
